@@ -15,13 +15,19 @@ class ProductsViewModel {
     var reloadTableViewClosure: (()->())?
     var selectedIndex: Int = 0
     
+    // paging
+    private let pageSize = 20
+    private var totalProducts = 0
+    private var currentPage = 0
+    private var fetchInProgress = false
+    
     private var cellViewModels: [ProductCellViewModel] = [ProductCellViewModel]() {
         didSet {
             self.reloadTableViewClosure?()
         }
     }
     
-    var numberOfRoutes: Int {
+    var numberOfProducts: Int {
         return cellViewModels.count
     }
     
@@ -36,12 +42,38 @@ class ProductsViewModel {
         self.productsClient = client
     }
     
-    func fetchProducts() {
-        productsClient.fetchProducts { [weak self] (products) in
-            guard let cellModels = ProductCellViewModel.modelsFromData(products) else {
+    private func fetchProducts() {
+        productsClient.fetchProducts(currentPage: currentPage, pageSize: pageSize) { [weak self] (productsList) in
+            self?.fetchInProgress = false
+            guard let productsList = productsList else {
                 return
             }
-            self?.cellViewModels = cellModels
+            
+            self?.totalProducts = productsList.totalProducts
+            guard let cellModels = ProductCellViewModel.modelsFromData(productsList.products) else {
+                return
+            }
+            if self?.currentPage == 1 {
+                self?.cellViewModels = cellModels
+            } else {
+                self?.cellViewModels.append(contentsOf: cellModels)
+            }
+        }
+    }
+    
+    private func isFirstPage() -> Bool {
+        return currentPage == 0
+    }
+    
+    func fetchNextPage() {
+        if fetchInProgress {
+            return
+        }
+        
+        if numberOfProducts < totalProducts || isFirstPage() {
+            currentPage += 1
+            fetchInProgress = true
+            fetchProducts()
         }
     }
 }
@@ -51,6 +83,10 @@ extension ProductsViewModel {
     func configureRouteListCell(cell: ProductCell, at index: Int) {
         let cellViewModel = cellViewModels[index]
         cell.configure(cellViewModel, imageProvider: imageProvider)
+        print("configureRouteListCell - \(index)")
+        if index == numberOfProducts - 5 {
+            fetchNextPage()
+        }
     }
 
     func didEndDisplayingCell(at index: Int) {

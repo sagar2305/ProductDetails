@@ -48,7 +48,7 @@ class ProductsListViewController: UIViewController {
     
     func initViewModel() {
         startActivityIndicator()
-        productsViewModel.fetchProducts()
+        productsViewModel.fetchNextPage()
         productsViewModel.reloadTableViewClosure = {
             DispatchQueue.main.async {
                 self.stopActivityIndicator()
@@ -65,7 +65,7 @@ class ProductsListViewController: UIViewController {
 
 extension ProductsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productsViewModel.numberOfRoutes
+        return productsViewModel.numberOfProducts
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

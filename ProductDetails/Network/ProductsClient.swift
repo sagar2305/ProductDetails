@@ -9,14 +9,14 @@
 import Foundation
 
 protocol ProductsClientProtocol {
-    func fetchProducts(completion: @escaping ([Product]?)->())
+    func fetchProducts(currentPage: Int, pageSize: Int, completion: @escaping (ProductsList?)->())
 }
 
 struct ProductsClient: ProductsClientProtocol {
-    func fetchProducts(completion: @escaping ([Product]?)->()) {
+    func fetchProducts(currentPage: Int = 1, pageSize: Int, completion: @escaping (ProductsList?)->()) {
         let urlSession = URLSession.shared
         
-        let urlString = Constants.productsEndpoint
+        let urlString = "\(Constants.productsEndpoint)/\(currentPage)/\(pageSize)"
         guard let url = URL(string: urlString) else {
             completion(nil)
             return
@@ -44,8 +44,7 @@ struct ProductsClient: ProductsClientProtocol {
             
             do {
                 let productsList = try JSONDecoder().decode(ProductsList.self, from: data)
-                print("\(productsList)")
-                completion(productsList.products)
+                completion(productsList)
             } catch let jsonErr {
                 print(jsonErr.localizedDescription)
             }
