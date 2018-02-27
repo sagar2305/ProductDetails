@@ -106,11 +106,11 @@
 				991AC0D12044FA220059E057 /* Constants.swift */,
 				991AC0EB20450E9D0059E057 /* Extensions */,
 				991AC0E220450B8B0059E057 /* Cells */,
+				991AC0F020452FF10059E057 /* View Controllers */,
 				991AC0D62044FB870059E057 /* Models */,
 				991AC0DB2044FFB70059E057 /* ViewModels */,
 				991AC0D32044FB370059E057 /* Network */,
 				991AC0B12044F9740059E057 /* AppDelegate.swift */,
-				991AC0B32044F9740059E057 /* ProductsListViewController.swift */,
 				991AC0B52044F9740059E057 /* Main.storyboard */,
 				991AC0B82044F9740059E057 /* Assets.xcassets */,
 				991AC0BA2044F9740059E057 /* LaunchScreen.storyboard */,
@@ -173,6 +173,14 @@
 				991AC0EE20450EED0059E057 /* UIImageViewExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		991AC0F020452FF10059E057 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				991AC0B32044F9740059E057 /* ProductsListViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3WX89RS5B7;
 				INFOPLIST_FILE = ProductDetails/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.ProductDetails;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -463,6 +472,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3WX89RS5B7;
 				INFOPLIST_FILE = ProductDetails/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.ProductDetails;
 				PRODUCT_NAME = "$(TARGET_NAME)";

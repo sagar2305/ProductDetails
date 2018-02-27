@@ -77,7 +77,7 @@ extension ProductsListViewController: UITableViewDataSource {
             fatalError(Constants.Error.productCellLoad)
         }
         
-        productsViewModel.configureRouteListCell(cell: cell, at: indexPath.row)
+        productsViewModel.configureProductListCell(cell: cell, at: indexPath.row)
         return cell
     }
 }

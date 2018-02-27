@@ -80,10 +80,9 @@ class ProductsViewModel {
 
 // setup product list cell
 extension ProductsViewModel {
-    func configureRouteListCell(cell: ProductCell, at index: Int) {
+    func configureProductListCell(cell: ProductCell, at index: Int) {
         let cellViewModel = cellViewModels[index]
         cell.configure(cellViewModel, imageProvider: imageProvider)
-        print("configureRouteListCell - \(index)")
         if index == numberOfProducts - 5 {
             fetchNextPage()
         }
@@ -101,7 +100,7 @@ extension ProductsViewModel {
 
 // setup product details cell
 extension ProductsViewModel {
-    func configureRouteDetailsCell(cell: ProductDetailsCell, at index: Int) {
+    func configureProductDetailsCell(cell: ProductDetailsCell, at index: Int) {
         let cellViewModel = cellViewModels[index]
         cell.configure(cellViewModel, imageProvider: imageProvider)
     }
