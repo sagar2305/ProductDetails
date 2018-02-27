@@ -6,7 +6,7 @@
 //  Copyright © 2018 Sagar Mutha. All rights reserved.
 //
 
-struct ProductsList: Decodable {
+struct ProductsList : Decodable {
     let pageNumber: Int
     let pageSize: Int
     let totalProducts: Int

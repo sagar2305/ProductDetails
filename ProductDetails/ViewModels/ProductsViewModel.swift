@@ -12,7 +12,7 @@ import UIKit
 class ProductsViewModel {
     
     private let productsClient: ProductsClientProtocol
-    var reloadTableViewClosure: (()->())?
+    var reloadTableViewClosure: (([IndexPath])->())?
     var selectedIndex: Int = 0
     
     // paging
@@ -21,9 +21,12 @@ class ProductsViewModel {
     private var currentPage = 0
     private var fetchInProgress = false
     
+    // insert new rows once view model updated
     private var cellViewModels: [ProductCellViewModel] = [ProductCellViewModel]() {
         didSet {
-            self.reloadTableViewClosure?()
+            let start = numberOfProducts - 20 < 0 ? 0 : numberOfProducts - 20
+            let indexPaths = (start..<numberOfProducts).map {IndexPath(row: $0, section: 0)}
+            self.reloadTableViewClosure?(indexPaths)
         }
     }
     

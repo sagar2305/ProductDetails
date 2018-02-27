@@ -6,7 +6,7 @@
 //  Copyright © 2018 Sagar Mutha. All rights reserved.
 //
 
-struct Product: Decodable {
+struct Product : Decodable {
     let productId: String
     let productName: String
     let shortDescription: String?
@@ -17,3 +17,10 @@ struct Product: Decodable {
     let reviewCount: Int
     let inStock: Bool
 }
+
+extension Product : Equatable {
+    static func ==(lhs: Product, rhs: Product) -> Bool {
+        return lhs.productId == rhs.productId
+    }
+}
+

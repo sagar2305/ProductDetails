@@ -49,10 +49,12 @@ class ProductsListViewController: UIViewController {
     func initViewModel() {
         startActivityIndicator()
         productsViewModel.fetchNextPage()
-        productsViewModel.reloadTableViewClosure = {
+        
+        // insert new rows in tableview
+        productsViewModel.reloadTableViewClosure = { (indexpaths) in
             DispatchQueue.main.async {
                 self.stopActivityIndicator()
-                self.tableView.reloadData()
+                self.tableView.insertRows(at: indexpaths, with: .none)
             }
         }
     }
