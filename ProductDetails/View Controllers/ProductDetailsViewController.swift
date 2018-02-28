@@ -45,6 +45,7 @@ class ProductDetailsViewController: UIViewController {
     }
 }
 
+// MARK:- UICollectionViewDataSource
 extension ProductDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productsViewModel.numberOfProducts

@@ -65,6 +65,7 @@ class ProductsListViewController: UIViewController {
     }
 }
 
+// MARK:- UITableViewDataSource
 extension ProductsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return productsViewModel.numberOfProducts
@@ -84,6 +85,7 @@ extension ProductsListViewController: UITableViewDataSource {
     }
 }
 
+// MARK:- UITableViewDelegate
 extension ProductsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // cancel any pending image requests for the cell
@@ -99,14 +101,6 @@ extension ProductsListViewController: UITableViewDelegate {
         let detailsVC = ProductDetailsViewController()
         detailsVC.productsViewModel = productsViewModel
         navigationController?.pushViewController(detailsVC, animated: true)
-    }
-}
-
-extension ProductsListViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? ProductsListViewController {
-            vc.productsViewModel = productsViewModel
-        }
     }
 }
 

@@ -18,9 +18,3 @@ struct Product : Decodable {
     let inStock: Bool
 }
 
-extension Product : Equatable {
-    static func ==(lhs: Product, rhs: Product) -> Bool {
-        return lhs.productId == rhs.productId
-    }
-}
-

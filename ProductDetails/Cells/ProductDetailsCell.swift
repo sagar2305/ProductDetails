@@ -37,6 +37,7 @@ class ProductDetailsCell: UICollectionViewCell {
     }
 }
 
+// MARK:- ProductDetailsCell
 extension ProductDetailsCell: ImageSettable {
     var cellImageView: UIImageView {
         return productImage
