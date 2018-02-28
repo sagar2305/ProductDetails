@@ -26,6 +26,8 @@
 		991AC0EA20450BF10059E057 /* ProductDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 991AC0E820450BF10059E057 /* ProductDetailsCell.xib */; };
 		991AC0ED20450EAF0059E057 /* ImageSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991AC0EC20450EAF0059E057 /* ImageSettable.swift */; };
 		991AC0EF20450EED0059E057 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991AC0EE20450EED0059E057 /* UIImageViewExtensions.swift */; };
+		991AC0F5204666DE0059E057 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991AC0F3204666DE0059E057 /* ProductDetailsViewController.swift */; };
+		991AC0F6204666DE0059E057 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 991AC0F4204666DE0059E057 /* ProductDetailsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		991AC0E820450BF10059E057 /* ProductDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsCell.xib; sourceTree = "<group>"; };
 		991AC0EC20450EAF0059E057 /* ImageSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSettable.swift; sourceTree = "<group>"; };
 		991AC0EE20450EED0059E057 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		991AC0F3204666DE0059E057 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		991AC0F4204666DE0059E057 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,8 @@
 		991AC0F020452FF10059E057 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				991AC0F3204666DE0059E057 /* ProductDetailsViewController.swift */,
+				991AC0F4204666DE0059E057 /* ProductDetailsViewController.xib */,
 				991AC0B32044F9740059E057 /* ProductsListViewController.swift */,
 			);
 			path = "View Controllers";
@@ -270,6 +276,7 @@
 				991AC0E620450BCE0059E057 /* ProductCell.xib in Resources */,
 				991AC0EA20450BF10059E057 /* ProductDetailsCell.xib in Resources */,
 				991AC0B92044F9740059E057 /* Assets.xcassets in Resources */,
+				991AC0F6204666DE0059E057 /* ProductDetailsViewController.xib in Resources */,
 				991AC0B72044F9740059E057 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +302,7 @@
 				991AC0D82044FBD40059E057 /* Product.swift in Sources */,
 				991AC0ED20450EAF0059E057 /* ImageSettable.swift in Sources */,
 				991AC0EF20450EED0059E057 /* UIImageViewExtensions.swift in Sources */,
+				991AC0F5204666DE0059E057 /* ProductDetailsViewController.swift in Sources */,
 				991AC0D52044FB540059E057 /* ProductsClient.swift in Sources */,
 				991AC0D22044FA220059E057 /* Constants.swift in Sources */,
 				991AC0DA2044FC740059E057 /* ProductsList.swift in Sources */,

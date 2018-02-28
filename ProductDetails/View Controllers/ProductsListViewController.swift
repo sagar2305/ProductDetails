@@ -94,6 +94,12 @@ extension ProductsListViewController: UITableViewDelegate {
         productsViewModel.selectedIndex = indexPath.row
         return indexPath
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsVC = ProductDetailsViewController()
+        detailsVC.productsViewModel = productsViewModel
+        navigationController?.pushViewController(detailsVC, animated: true)
+    }
 }
 
 extension ProductsListViewController {

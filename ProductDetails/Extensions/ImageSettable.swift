@@ -17,9 +17,7 @@ protocol ImageSettable {
 
 extension ImageSettable {
     func setCellImage(_ viewModel: ProductCellViewModel, imageProvider: ImageProvider) {
-        let placeHolderImage = UIImage(named: Constants.Image.placeholder)
         guard let url = viewModel.productImage else {
-            cellImageView.image = placeHolderImage
             return
         }
         
@@ -34,8 +32,7 @@ extension ImageSettable {
             DispatchQueue.main.async {
                 // check if the cell that requested the image is still around
                 if self.validUrl == viewModel.productImage {
-                    let newImage = image == nil ? placeHolderImage : image
-                    self.cellImageView.setImageAnimated(newImage)
+                    self.cellImageView.setImageAnimated(image)
                 }
             }
         })
