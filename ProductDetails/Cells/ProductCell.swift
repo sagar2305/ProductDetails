@@ -23,6 +23,7 @@ class ProductCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.productImage.image = nil
+        productName.text = nil
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

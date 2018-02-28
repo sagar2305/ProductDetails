@@ -9,16 +9,13 @@
 struct Constants {
     static let productsEndpoint = "https://walmartlabs-test.appspot.com/_ah/api/walmart/v1/walmartproducts/c7a363d8-874d-49a7-8744-a2f228e4e705"
     
-    struct Image {
-        static let placeholder = "placeholder"
-    }
-    
     struct ProductsListVC {
         static let title = "Products"
     }
     
     struct ProductDetailsVC {
         static let title = "Product Details"
+        static let outOfStock = "OUT OF STOCK"
     }
     
     struct Error {

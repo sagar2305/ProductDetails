@@ -9,31 +9,41 @@
 import UIKit
 
 class ProductDetailsCell: UICollectionViewCell {
+    @IBOutlet private weak var productImage: UIImageView!
+    @IBOutlet private weak var productName: UILabel!
+    @IBOutlet private weak var productDescription: UILabel!
+    @IBOutlet private weak var priceLabel: UILabel!
+    private var imageUrl: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productImage.image = nil
+        productName.text = nil
+        productDescription.text = nil
+        priceLabel.text = nil
+    }
+    
     func configure(_ viewModel: ProductCellViewModel, imageProvider: ImageProvider) {
-//        routeViewModel = viewModel
-//        imageUrl = viewModel.imageURL
-//        routeTitle.text = viewModel.name
-//        routeDescription.text = viewModel.description
-//        accessibleImage.image = UIImage(named: Constants.Image.accessible)
-//        accessibleImage.isHidden = !viewModel.accessible
-//        setCellImage(viewModel, imageProvider: imageProvider)
-//        tableView.reloadData()
+        imageUrl = viewModel.productImage
+        productName.text = viewModel.productName
+        productDescription.text = viewModel.longDescription
+        priceLabel.text = viewModel.currentPrice
+        setCellImage(viewModel, imageProvider: imageProvider)
     }
 }
 
-//extension ProductDetailsCell: ImageSettable {
-//    var cellImageView: UIImageView {
-//        return routeImage
-//    }
-//    
-//    var validUrl: String? {
-//        return imageUrl
-//    }
-//}
+extension ProductDetailsCell: ImageSettable {
+    var cellImageView: UIImageView {
+        return productImage
+    }
+    
+    var validUrl: String? {
+        return imageUrl
+    }
+}
 
